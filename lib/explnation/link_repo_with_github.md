@@ -24,7 +24,7 @@ part 'note_model.g.dart';
  // *note_model is the name of the file that has our model class .g indecates that he will generate file related to this file .*
 
 @HiveType(typeId: 0)
-class noteModel {
+class noteModel extends HiveObject{
   @HiveField(0)
   final String title;
    @HiveField(1)
