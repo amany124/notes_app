@@ -14,26 +14,29 @@ class noteBootomSheetBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => addNoteCubit(),
-      child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16),
-        child: BlocConsumer<addNoteCubit, addNoteStates>(
-          listener: (context, state) {
-            if (state is addNoteSucessState) {
-              Navigator.pop(context);
-            }
-            if (state is addNoteFailureState) {
-              print(state.error);
-            }
-          },
-          builder: (context, state) {
-            return AbsorbPointer(
-              absorbing: state is addNoteLoadingState,
-              child: SingleChildScrollView(
+      child: BlocConsumer<addNoteCubit, addNoteStates>(
+        listener: (context, state) {
+          if (state is addNoteSucessState) {
+            Navigator.pop(context);
+          }
+          if (state is addNoteFailureState) {
+            print(state.error);
+          }
+        },
+        builder: (context, state) {
+          return AbsorbPointer(
+            absorbing: state is addNoteLoadingState,
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: EdgeInsets.only(
+                    left: 16,
+                    right: 16,
+                    bottom: MediaQuery.of(context).viewInsets.bottom),
                 child: bottomSheetForm(),
               ),
-            );
-          },
-        ),
+            ),
+          );
+        },
       ),
     );
   }
