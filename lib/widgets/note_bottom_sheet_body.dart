@@ -26,8 +26,11 @@ class noteBootomSheetBody extends StatelessWidget {
             }
           },
           builder: (context, state) {
-            return SingleChildScrollView(
-              child: bottomSheetForm(),
+            return AbsorbPointer(
+              absorbing: state is addNoteLoadingState,
+              child: SingleChildScrollView(
+                child: bottomSheetForm(),
+              ),
             );
           },
         ),
