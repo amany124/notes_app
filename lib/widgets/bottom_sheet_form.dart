@@ -65,6 +65,7 @@ class _bottomSheetFormState extends State<bottomSheetForm> {
                   date: FormattedDate,
                   color: Colors.blue.value);
               BlocProvider.of<addNoteCubit>(context).addNoteMethod(note);
+              
             },
           ),
           SizedBox(

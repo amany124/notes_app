@@ -10,5 +10,6 @@ class displayNotesCubit extends Cubit<disaplayNoteStates> {
   displayNotesMethod() async {
     Box notebox = Hive.box<noteModel>(knotesBox);
     note_list = notebox.values.toList() as List<noteModel>;
+    emit(disaplayNotesSucessState());
   }
 }

@@ -12,8 +12,12 @@ class noteListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<displayNotesCubit, disaplayNoteStates>(
       builder: (context, state) {
-        List<noteModel> note_list =
-            BlocProvider.of<displayNotesCubit>(context).note_list;
+        List<noteModel> note_list = [];
+
+        if (state is disaplayNotesSucessState) {
+          note_list = BlocProvider.of<displayNotesCubit>(context).note_list;
+        }
+
         return Padding(
           padding: const EdgeInsets.symmetric(vertical: 17),
           child: ListView.builder(
