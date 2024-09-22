@@ -26,11 +26,8 @@ class noteBootomSheetBody extends StatelessWidget {
             }
           },
           builder: (context, state) {
-            return ModalProgressHUD(
-              inAsyncCall: state is addNoteLoadingState,
-              child: SingleChildScrollView(
-                child: bottomSheetForm(),
-              ),
+            return SingleChildScrollView(
+              child: bottomSheetForm(),
             );
           },
         ),
